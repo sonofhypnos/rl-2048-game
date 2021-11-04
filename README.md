@@ -23,3 +23,7 @@ This game environment is from [gym-2048](https://pypi.org/project/gym-2048/) whi
 
 **(Optional) set various parameters.**
 * For example, you can change the `MAX_EPISIDOSE` or `BATCH_SIZE` in `main.py`.
+
+```
+python main.py
+```
