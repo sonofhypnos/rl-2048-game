@@ -1,10 +1,11 @@
 # RL: 2048-game
 
 ## Getting Started
-* The project was implemented by Pytorch, make sure `torch` is installed.
+* The project use `PyTorch` to implement, make sure `torch` is installed.
 
 ### Requirements
-* Install python3 & pip. Then, run:
+* Install `Python3` & `pip` first. 
+* Then, run:
 ```
 pip install -r requirements.txt
 ```
