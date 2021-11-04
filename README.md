@@ -1,6 +1,7 @@
 # RL: 2048-game
 
 ## Getting Started
+* The project was implemented by Pytorch, make sure `torch` is installed.
 
 ### Requirements
 * Install python3 & pip. Then, run:
@@ -22,7 +23,7 @@ This game environment is from [gym-2048](https://pypi.org/project/gym-2048/) whi
 ## Run Training
 
 **(Optional) set various parameters.**
-* For example, you can change the `MAX_EPISIDOSE` or `BATCH_SIZE` in `main.py`.
+* For example, you can change the `MAX_EPISIDOSE`, `MAMORY_SIZE` or `BATCH_SIZE` in `main.py`.
 
 ```
 python main.py
