@@ -137,8 +137,10 @@ def minibatch_train(env, agent, max_episodes, batch_size, writer=None):
     return episode_reward
 
 if __name__ == '__main__':
+    
     MAX_EPISODES = 100000
     BATCH_SIZE = 200
+    MAMORY_SIZE = 5000
 
     # creating 2048 env
     env = gym.make("2048-v0")
@@ -154,7 +156,7 @@ if __name__ == '__main__':
     optimizer = torch.optim.Adam(main_model.parameters())
 
     # experience replay
-    experience_replay = ExperienceReply(max_size=10000)
+    experience_replay = ExperienceReply(max_size=MAMORY_SIZE)
 
     # MSE loss function 
     loss_function = nn.MSELoss()
@@ -165,5 +167,5 @@ if __name__ == '__main__':
     # tf board
     tbWriter = SummaryWriter(f'runs/2048game/')
 
-    # train by mini-batch
+    # training with mini-batch
     episode_rewards = minibatch_train(env, agent, MAX_EPISODES, BATCH_SIZE, writer=tbWriter)
