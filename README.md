@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 ## Source Code Structure
 
-### About environment
+### About Environment
 This game environment is from [gym-2048](https://pypi.org/project/gym-2048/) which implements the classic grid game 2048 for OpenAI gym environment.
 
 ### About Code
