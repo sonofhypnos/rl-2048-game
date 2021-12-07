@@ -130,15 +130,13 @@ def minibatch_train(env, agent, max_episodes, batch_size, writer=None):
             if writer:
                 writer.add_scalar('Valid Avg Reward', val_avg_reward, train_ep)
 
-        if train_ep % 1000 == 0:
             agent.save_checkpoint(train_ep)
 
 
     return episode_reward
 
-if __name__ == '__main__':
-    
-    MAX_EPISODES = 100000
+def main():
+    MAX_EPISODES = 100
     BATCH_SIZE = 200
     MAMORY_SIZE = 5000
 
@@ -147,7 +145,7 @@ if __name__ == '__main__':
 
     # main model
     main_model = DuelingDQN(16, 4)
-    
+
     # target model
     target_model = DuelingDQN(16, 4)
     target_model.load_state_dict(main_model.state_dict())
@@ -158,7 +156,7 @@ if __name__ == '__main__':
     # experience replay
     experience_replay = ExperienceReply(max_size=MAMORY_SIZE)
 
-    # MSE loss function 
+    # MSE loss function
     loss_function = nn.MSELoss()
 
     # agent
@@ -169,3 +167,13 @@ if __name__ == '__main__':
 
     # training with mini-batch
     episode_rewards = minibatch_train(env, agent, MAX_EPISODES, BATCH_SIZE, writer=tbWriter)
+
+
+if __name__ == '__main__':
+    import cProfile, pstats
+    profiler = cProfile.Profile()
+    profiler.enable()
+    main()
+    profiler.disable()
+    stats = pstats.Stats(profiler).sort_stats('tottime')
+    stats.print_stats()
